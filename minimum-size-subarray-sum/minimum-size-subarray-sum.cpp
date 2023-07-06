@@ -13,6 +13,7 @@ public:
             }
             right++;
         }
+        
         return minimum == INT_MAX?0:minimum;
     }
 };
