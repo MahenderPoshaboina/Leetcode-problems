@@ -8,14 +8,10 @@ public:
 
         for(int i=n-2; i>=0; i--){
             for(int j= m-1; j>=0; j--){
-                int up= dp[i+1][j]+ matrix[i][j];
-                int dl=matrix[i][j];
-                if(j>0) dl += dp[i+1][j-1];
-                else dl = INT_MAX;
-                int dr= matrix[i][j];
-                if(j<m-1) dr += dp[i+1][j+1];
-                else dr = INT_MAX;
-                dp[i][j] = min(up, min(dl,dr));
+                int up= dp[i+1][j];
+                int dl = (j>0)?dp[i+1][j-1]:INT_MAX;
+                int dr = (j<m-1)?dp[i+1][j+1]:INT_MAX;
+                dp[i][j] = matrix[i][j] + min(up, min(dl,dr));
             }
         } 
 
